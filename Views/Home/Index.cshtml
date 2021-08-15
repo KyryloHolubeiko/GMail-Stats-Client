@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    
+    <form>
+        <button class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Login">Login With Google</button>
+    </form>
+    
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+</div>
+
+<ul>
+    @if(Context.User.Identity.IsAuthenticated)
+        {
+            <li>
+                <a>
+                    Hello @User.Identity.Name
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Home" asp-action="Logout">Logout</a>
+            </li>
+            <li>
+                <a href="https://gmail.googleapis.com/gmail/v1/users/115580970930070594032/history">History</a>
+            </li>
+        }
+</ul>
+
+
